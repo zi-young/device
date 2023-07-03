@@ -28,12 +28,15 @@
 
 <!-- 제이쿼리 3.7 CDN -->
 <script src='https://code.jquery.com/jquery-3.7.0.min.js' crossorigin='anonymous'></script>
+<!-- 모더나이저 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
 <!-- 로컬 CSS -->
 <link rel='stylesheet' href='./css/style.css'/>
 
 <!-- 로컬 js -->
 <script src='./js/script.js' defer></script>
+
 
 </head>
 <body>
@@ -57,11 +60,19 @@
     pc device
 </div>
 <script>
-    let ratio=window.devicePixelRatio;
-    console.log(ratio)
-    if(ratio>=2){
+    // let ratio=window.devicePixelRatio;
+    // console.log(ratio)
+    // if(ratio>=2){
+    //     document.querySelector('.pc').style.display='none';
+    // }else{
+    //     document.querySelector('.mobile').style.display='none';
+    // }
+
+    if (Modernizr.touchevents) {//터치이벤트가 있으면 모바일로 인식
         document.querySelector('.pc').style.display='none';
-    }else{
+    // supported
+    } else {
+    // not-supported
         document.querySelector('.mobile').style.display='none';
     }
 </script>
